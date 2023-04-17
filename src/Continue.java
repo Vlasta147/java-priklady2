@@ -10,8 +10,10 @@ public class Continue {
                 if (i == 7) return; // Ukonci cyklus aj program, nevypise mi "Koniec programu"
                 System.out.println(i);
             }
-        }
-        System.out.println("Koniec programu");
-    }
 
+
+            System.out.println("Koniec programu");
+        }
+
+    }
 }
