@@ -44,57 +44,15 @@ public class Kniznica {
 
 
             if (menuPolozka.equals("1")) {
-                Kniha novaKniha = new Kniha(); // Vytvorime objekt knihy, cize prazdnu knihu
-
-                System.out.println("Vybral som 1");
-                System.out.println("Zadaj názov knihy");
-                //novaKniha.setNazov(sc.nextLine()); iny zapis pre nizsie veci tykajuce sa nazvu
-                String nazovKnihy = sc.nextLine(); // Pozadujeme od pouzivatela nazov knihy
-
-                System.out.println("Zadaj meno autora");
-                String autor = sc.nextLine();
-
-                System.out.println("Zadaj rok");
-                int rokVydania = sc.nextInt();
-
-                novaKniha.setNazov(nazovKnihy); // Ulozime nazov knihy cez setter, cize setNazov
-                novaKniha.setAutor(autor);
-                novaKniha.setRokVydania(rokVydania);
-
-                // teda je prazdny
-                vsetkyKnihy.add(novaKniha);
+                knihaService.pridajKnihu(vsetkyKnihy);
 
 
             } else if (menuPolozka.equals("2")) {
-                System.out.println("Vybral som 2");
-
-                //Testujeme ci je kniznica, teda vsetky, cize ArrazList prazdny a to cez metodu is Empty()
-                //if (vsetkyKnihy.isEmpty()) System.out.println("Knižnica je prázdna!");
-                if (vsetkyKnihy == null) System.out.println("Knižnica je prázdna!");
-
-                //TODO Vypiste vsetky knihy
-                // Hint: foreach
-                for (Kniha konkretnaKniha : vsetkyKnihy) {
-                    System.out.println("Názov knihy:" + konkretnaKniha.getNazov());
-                    System.out.println("Autor:" + konkretnaKniha.getAutor());
-                    System.out.println("Rok vydania " + konkretnaKniha.getRokVydania());
-                }
+                knihaService.zobrazVsetkyKnihy(vsetkyKnihy);
 
 
             } else if (menuPolozka.equals("3")) {
-                try {
-                    //Funkcionalita tohto menu je nasledovna: Zobraz konkretnu knihu podľa indexu\n"
-                    System.out.println("Zadaj index knihy, ktorú chceš zobraziť (pozn: od 1 po N)");
-                    int indexKnihy = sc.nextInt(); //Od pouzivatela vyzadujeme index knihy,cislo, tj. sc.nextInt()
-
-                    Kniha najdenaKniha = vsetkyKnihy.get(indexKnihy - 1); // Tymto zapisom sme ziskali knhu podla jeho indexu
-                    // -1 preto, lebo zacina sa od nuly 0, takze vlastne prvy prvok je vlastne nulty
-                    System.out.println(najdenaKniha); // Tym, ze v triede Kniha mame metodu toString, tak si ju mozeme vypisat takto priamo
-                } catch (IndexOutOfBoundsException e) {
-                    System.out.println("Zadal si neexistujúce číslo indexu");
-                } catch (Exception e) {
-                    System.out.println("Neznáma chyba!");
-                }
+               knihaService.zobrazKnihuPodlaIndexu(vsetkyKnihy);
 
 
             } else if (menuPolozka.equals("4")) {
