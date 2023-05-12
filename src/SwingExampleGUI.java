@@ -4,12 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 
-public class JSwingExampleGUI {
+public class SwingExampleGUI {
     public static void main(String[] args) {
 
 
-        JFrame frame = new JFrame("Hello World Swing"); // vytvorime okno
-        frame.setMinimumSize(new Dimension(400, 200));
+        JFrame frame = new JFrame("Hello World Swing"); // vytvorime okno, ktory ma nazov Hello World Swing
+        frame.setMinimumSize(new Dimension(400, 200)); //Velkosť okna
+        //frame.setMinimumSize(new Dimension()); ak nie je velkost okna, okno je velke na celú obrazovku
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // ked kliknem na X na okne (cize vo frame) tak sa zatvori standardne
         frame.setLocationRelativeTo(null); // vycentrovanie okna
 
@@ -23,11 +24,10 @@ public class JSwingExampleGUI {
 
 
 
-
         // JText
         JTextField textField = new JTextField();
         textField.setBounds(95, 20, 200, 30); // x, y, sirka, vyska
-        textField.setHorizontalAlignment(JTextField.RIGHT);
+        textField.setHorizontalAlignment(JTextField.RIGHT); // RIGHT znamena, ze zarovnava text doprava
         panel.add(textField);
 
 
